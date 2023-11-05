@@ -2,8 +2,9 @@
 
 In the provided C++ program, the classes LinkedListStack and LinkedListQueue are defined to create stack and queue data structures using linked lists. These classes are not explicitly called within the code as standalone functions but are intended to be used as part of the program's data structure implementation.
 The actual usage of these classes within the program can be found in the following functions:
-* 		LinkedListStack is used in the entry_menu() function for managing a stack of student records. The specific operations that involve the stack are write_student(), display_all(), display_sp(n), modify_student(n), and delete_student(n).
-* 		LinkedListQueue is used in the class_result() function for displaying all student records. The class_result() function uses the queue data structure to sequentially display student records in a first-in, first-out (FIFO) manner.
+
+-> LinkedListStack is used in the entry_menu() function for managing a stack of student records. The specific operations that involve the stack are write_student(), display_all(), display_sp(n), modify_student(n), and delete_student(n).
+-> LinkedListQueue is used in the class_result() function for displaying all student records. The class_result() function uses the queue data structure to sequentially display student records in a first-in, first-out (FIFO) manner.
 So, while the classes themselves are not explicitly called as functions, their functionality is integrated into the entry_menu() and class_result() functions to manage student records in a stack and queue, respectively.
 
 # Student Report Card Project
