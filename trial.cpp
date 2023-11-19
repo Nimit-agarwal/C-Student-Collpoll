@@ -9,7 +9,6 @@
 #include<ctime>
 #include<cmath>
 #include<algorithm>
-#include<vector>
 #include<queue>
 #include<stack>
 #include<map>
@@ -178,7 +177,7 @@ void display_all() {
         cout << "\nGrade of student is : " << st.grade;
         cout << "\n\n====================================\n";
     }
-    cout<<"\nEnter 1 to continue :- ";
+    cout<<"\n\nEnter 1 to continue :- ";
     cin>>tempc;
     fp.close();
 }
@@ -202,7 +201,7 @@ void display_sp(int n) {
         }
     }
     int tempc;
-    cout<<"\nEnter 1 to continue :- ";
+    cout<<"\n\nEnter 1 to continue :- ";
     cin>>tempc;
     fp.close();
     if (flag == false)
@@ -256,7 +255,7 @@ void modify_student(int n) {
         }
     }
     int tempc;
-    cout<<"\nEnter 1 to continue :- ";
+    cout<<"\n\nEnter 1 to continue :- ";
     cin>>tempc;
     fp.close();
     if (found == false)
@@ -311,7 +310,7 @@ void intro() {
     system("clear");
     cout << "\n\n\n\t\tSTUDENT REPORT CARD PROJECT";
     cout << "\n\n\n\tMADE BY : YOUR NAME";
-    cout << "\n\n\tSCHOOL : SCHOOL NAME";
+    cout << "\n\n\tCOLLEGE : BENNETT UNIVERSITY";
 }
 
 void entry_menu() {
@@ -365,26 +364,69 @@ void face(){
 int main() {
     char ch;
     int tempc;
-    do {
+    while(1){
         system("clear");
         cout << "\n\n\n\tMAIN MENU";
         cout << "\n\n\t01. RESULT MENU";
         cout << "\n\n\t02. ENTRY/EDIT MENU";
         cout << "\n\n\t03. ATTENDENCE FACE RECOGNITION";
-        cout << "\n\n\t04. EXIT";
+        cout << "\n\n\t04. DISPLAY ATTENDENCE";
+        cout << "\n\n\t05. DELETE PREVIOUS ATTENDENCE";
+        cout << "\n\n\t06. EXIT";
         cout << "\n\n\tPlease Select Your Option (1-4) ";
         ch = getchar();
         system("clear");
-        switch (ch) {
-        case '1': class_result();
-        cout<<"\nEnter 1 to continue :- ";
-        cin>>tempc;
-        break;
-        case '2': entry_menu(); break;
-        case '4':exit(0);
-        case '3':face(); break;
-        default:cout << "\a";
+        if (ch=='1'){ 
+            class_result();
+            cout<<"\n\nEnter 1 to continue :- ";
+            cin>>tempc;
         }
-    } while (ch != '4');
+        if (ch=='2'){
+            entry_menu();
+        }
+        if (ch=='6'){
+            exit(0);
+        }
+        if (ch=='3'){
+            face();
+        }
+        if (ch=='4'){
+            const std::string csvFileName = "attendences.csv"; // Change this to your CSV file's name
+            // Open the CSV file for reading
+            std::ifstream csvFile(csvFileName);
+            if (!csvFile.is_open()) {
+                std::cerr << "Error: Could not open the CSV file." << std::endl;
+                return 1;
+            }
+            std::string line;
+            while (std::getline(csvFile, line)) {
+                std::istringstream lineStream(line);
+                std::string field;
+                std::vector<std::string> fields;
+                while (std::getline(lineStream, field, ',')) {
+                    fields.push_back(field);
+                }
+                for (const std::string& data : fields) {
+                    std::cout << data << " | ";
+                }
+                std::cout << std::endl;
+            }
+            cout<<"\n\nEnter 1 to continue :- ";
+            cin>>tempc;
+            csvFile.close();
+        }
+        if (ch=='5'){
+            const char* filename = "attendences.csv";
+            std::ofstream ofs;
+            ofs.open(filename, std::ofstream::out | std::ofstream::trunc);
+            ofs.close();
+            std::cout << "Previous Attendence Cleared Successfully!" << std::endl;
+            cout<<"\n\nEnter 1 to continue :- ";
+            cin>>tempc;
+        }
+        else{
+            cout << "\a";
+        }
+    }
     return 0;
 }
