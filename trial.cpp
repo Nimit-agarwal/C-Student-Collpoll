@@ -372,7 +372,8 @@ int main() {
         cout << "\n\n\t03. ATTENDENCE FACE RECOGNITION";
         cout << "\n\n\t04. DISPLAY ATTENDENCE";
         cout << "\n\n\t05. DELETE PREVIOUS ATTENDENCE";
-        cout << "\n\n\t06. EXIT";
+        cout << "\n\n\t06. STUDENT TRANSPORTATION";
+        cout << "\n\n\t07. EXIT";
         cout << "\n\n\tPlease Select Your Option (1-4) ";
         ch = getchar();
         system("clear");
@@ -384,7 +385,7 @@ int main() {
         if (ch=='2'){
             entry_menu();
         }
-        if (ch=='6'){
+        if (ch=='7'){
             exit(0);
         }
         if (ch=='3'){
@@ -423,6 +424,10 @@ int main() {
             std::cout << "Previous Attendence Cleared Successfully!" << std::endl;
             cout<<"\n\nEnter 1 to continue :- ";
             cin>>tempc;
+        }
+        if(ch=='6'){
+            std::system("g++ tempc.cpp -o executable"); // Compile the file
+            std::system("./executable"); // Run the compiled file
         }
         else{
             cout << "\a";
