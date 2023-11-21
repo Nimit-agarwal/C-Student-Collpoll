@@ -374,7 +374,7 @@ int main() {
         cout << "\n\n\t05. DELETE PREVIOUS ATTENDENCE";
         cout << "\n\n\t06. STUDENT TRANSPORTATION";
         cout << "\n\n\t07. EXIT";
-        cout << "\n\n\tPlease Select Your Option (1-4) ";
+        cout << "\n\n\tPlease Select Your Option (1-7) ";
         ch = getchar();
         system("clear");
         if (ch=='1'){ 
